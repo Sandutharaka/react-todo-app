@@ -1,4 +1,4 @@
-import React from 'react';
+const React = require('react');
 
 /**
  * Returns a new object with only few attributes of the original object.
@@ -8,7 +8,7 @@ import React from 'react';
  * @param  {Array}             Array of selected attributes.
  * @return {Object}            New object with only the selected attributes.
  */
-export function objectWithOnly(object, attrs) {
+function objectWithOnly(object, attrs) {
     let newObject = {};
 
     attrs.forEach(attr => {
@@ -21,7 +21,7 @@ export function objectWithOnly(object, attrs) {
 /**
  * Wraps react children elements with props.
  */
-export function wrapChildrenWith(children, props) {
+function wrapChildrenWith(children, props) {
     return React.Children.map(children, child => React.cloneElement(child, props));
 }
 
@@ -32,6 +32,12 @@ export function wrapChildrenWith(children, props) {
  * @param  {String} substr
  * @return {Boolean}
  */
-export function stringInclues(str, substr) {
+function stringInclues(str, substr) {
     return str.indexOf(substr) !== -1;
 }
+
+module.exports = {
+    objectWithOnly,
+    wrapChildrenWith,
+    stringInclues,
+};
